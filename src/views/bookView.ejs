@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+      <div class="topnav">
+        <a class="active" href="#Home">Home</a>
+        <% for(let i = 0; i < nav.length; i++) { %> 
+        <a href="<%= nav[i].link %>"><%= nav[i].title %></a>
+        <% } %> 
+      </div>
+      
+      <div class="content">
+        <h2><%=title%></h2>
+        <p>Some content..</p>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-12"> 
+            
+            <div class="panel">
+              <div class="panel-body">
+                <!--/stories-->
+                    <div class="row">    
+                        <br>
+                        <div class="col-md-2 col-sm-3 text-center">
+                          <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/men/58.jpg" style="width:100px;height:100px" class="img-circle"></a>
+                        </div>
+                        <div class="col-md-10 col-sm-9">
+                          <h3><%= book.title %> </h3>
+                          <div class="row">
+                            <div class="col-xs-9">
+                              <h4><span class="label label-default"><%= book.author %> </span></h4><h4>
+                              <small style="font-family:courier,'new courier';" class="text-muted">2 hours ago  • 
+                                <a href="/books" class="text-muted">Go to list of books</a></small>
+                              </h4></div>
+                            <div class="col-xs-3"></div>
+                          </div>
+                          <br><br>
+                        </div>
+                      </div>
+                <!--/stories-->
+              </div>
+            </div>                             
+           </div><!--/col-12-->
+        </div>
+      </div>
+	<!-- script references -->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+	</body>
+</html>
