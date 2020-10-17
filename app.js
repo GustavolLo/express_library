@@ -6,23 +6,24 @@ const path = require('path');
 // const sql = require('mssql');
 const bodyParser = require('body-parser');
 // passport
-const passport = require('passport');
+// const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-const confg = {
-  user: 'express-library',
-  password: '34AVb4R5*a',
-  server: 'express-library.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
-  database: 'ExpressLibrary',
+// const confg = {
+//   user: 'express-library',
+//   password: '34AVb4R5*a',
+// You can use 'localhost\\instance' to connect to named instance
+//   server: 'express-library.database.windows.net',
+//   database: 'ExpressLibrary',
 
-  options: {
-    encrypt: true // use this if you are on Windows Azure
-  }
-};
+//   options: {
+//     encrypt: true // use this if you are on Windows Azure
+//   }
+// };
 
 // sql.connect(confg).catch((error) => debug(error));
 
