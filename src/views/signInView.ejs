@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title><%=title%></title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+      <div class="topnav">
+        <a class="active" href="#Home">Home</a>
+        <% for(let i = 0; i < nav.length; i++) { %> 
+        <a href="<%= nav[i].link %>"><%= nav[i].title %></a>
+        <% } %> 
+      </div>
+      
+      <div class="content">
+        <h2><%=title%></h2>
+        <p>Some content..</p>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-12"> 
+            
+            <div class="panel">
+              <div class="panel-body">
+                
+                
+                
+                <!--/stories-->
+                <div class="row">    
+                  <br>
+                  <div class="col-md-2 col-sm-3 text-center">
+                    Sign In!
+                    <form name="signInForm" action="/auth/signIn" method="post">
+                      Username: <input name="username" id="username" /><br/>
+                      Password: <input name="password" id="password" /><br/>
+                      <input type="submit" value="Sign In" />
+                    </form>
+                  </div>
+                </div>
+                <!--/stories-->
+              </div>
+            </div>                             
+           </div><!--/col-12-->
+        </div>
+      </div>
+	<!-- script references -->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+	</body>
+</html>
