@@ -3,8 +3,12 @@ const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
-const sql = require('mssql');
+// const sql = require('mssql');
 const bodyParser = require('body-parser');
+// passport
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,11 +24,16 @@ const confg = {
   }
 };
 
-sql.connect(confg).catch((error) => debug(error));
+// sql.connect(confg).catch((error) => debug(error));
 
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(expressSession({ secret: 'library' }));
+
+require('./src/config/passport')(app);
+
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
