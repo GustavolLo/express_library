@@ -33,11 +33,6 @@ function router(nav) {
       }());
     });
 
-  authRouter.route('/profile')
-    .get((req, res) => {
-      res.json(req.user);
-    });
-
   authRouter.route('/signIn')
     .get((req, res) => {
       res.render('signInView', {
@@ -49,6 +44,18 @@ function router(nav) {
       successRedirect: '/auth/profile',
       failureRedirect: '/'
     }));
+
+  authRouter.route('/profile')
+    .all((req, res, next) => {
+      if (req.user) {
+        next();
+      } else {
+        res.redirect('/');
+      }
+    })
+    .get((req, res) => {
+      res.json(req.user);
+    });
 
   return authRouter;
 }
