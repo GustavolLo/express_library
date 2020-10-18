@@ -57,6 +57,12 @@ function router(nav) {
       res.json(req.user);
     });
 
+  authRouter.route('/signOut')
+    .get((req, res) => {
+      req.logout();
+      res.redirect('/');
+    });
+
   return authRouter;
 }
 
