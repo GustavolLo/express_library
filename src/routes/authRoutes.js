@@ -18,9 +18,7 @@ function router(nav) {
           client = await MongoClient.connect(url);
           debug('Connected to the server');
           const db = client.db(dbName);
-
           const col = await db.collection('users');
-
           const user = { username, password };
           const result = await col.insertOne(user);
           req.login(result.ops[0], () => {
